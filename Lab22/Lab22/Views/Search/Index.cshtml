@@ -1,0 +1,48 @@
+﻿@model MovieSearchViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<h1>Search Movies</h1>
+
+
+
+<h4>By Title</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SearchResultGenre">
+            <div class="form-group">
+                <label asp-for="Genre" class="col-me-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Genre" asp-items="Html.GetEnumSelectList<MovieGenre>()">
+                        <option selected="selected" value="">Please Select</option>
+                    </select>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </form>
+    </div>
+</div>
+
+<h4>By Genre</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SearchResultTitle">
+            <div class="form-group">
+                <label asp-for="Genre" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Genre" asp-items="Html.GetEnumSelectList<Genre>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Genre" class="text-danger" />
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </form>
+    </div>
+</div>
